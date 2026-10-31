@@ -5,7 +5,7 @@ extends Node2D
 ## Purkinje fibres), four valves opening/closing with the cardiac cycle and
 ## deoxygenated/oxygenated blood boluses flowing to and fro.
 
-@export var model: BodyModel
+var model: BodyModel   # assigned by Main before add_child (RefCounted -> not @exportable)
 
 var _heart: Sprite2D
 # Chamber centres in local coords (sprite is centred, 128x128)

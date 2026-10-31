@@ -7,7 +7,7 @@ extends Node2D
 ## angle is a sine of the shared gait phase. Motor impulses from the brain
 ## module pre-charge the muscles (a visible "twitch" before movement starts).
 
-@export var model: BodyModel
+var model: BodyModel   # assigned by Main before add_child (RefCounted -> not @exportable)
 @export var walk_speed := 90.0
 @export var ground_y := 150.0
 

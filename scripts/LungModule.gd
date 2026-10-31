@@ -5,7 +5,7 @@ extends Node2D
 ## the diaphragm flattens/domes, and pulmonary capillary blood (blue -> red
 ## as it picks up O2) washes through the lung surface.
 
-@export var model: BodyModel
+var model: BodyModel   # assigned by Main before add_child (RefCounted -> not @exportable)
 
 var _lungs: Sprite2D
 var _particles: Array[Dictionary] = []   # {pos, vel, t, life} air streamlets

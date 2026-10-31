@@ -5,7 +5,7 @@ extends Node2D
 ## pain stars, dizzy orbiting birds. Emotion changes are tweened so features
 ## blend smoothly rather than snapping.
 
-@export var model: BodyModel
+var model: BodyModel          # assigned by Main before add_child (RefCounted -> not @exportable)
 
 var _base: Sprite2D
 var _eyes: Sprite2D
@@ -51,8 +51,8 @@ func _sprite(name: String) -> Sprite2D:
 	return s
 
 func _on_emotion(e: StringName) -> void:
-	var set: Array = SPRITES.get(String(e), SPRITES["neutral"])
-	_swap(_eyes, set[0]); _swap(_brows, set[1]); _swap(_mouth, set[2])
+	var sprite_set: Array = SPRITES.get(String(e), SPRITES["neutral"])
+	_swap(_eyes, sprite_set[0]); _swap(_brows, sprite_set[1]); _swap(_mouth, sprite_set[2])
 	if e == &"dizzy":
 		model.fire_impulse(0.4)   # disorientation nudges the brain
 

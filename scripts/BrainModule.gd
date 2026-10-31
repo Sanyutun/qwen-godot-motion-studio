@@ -6,7 +6,7 @@ extends Node2D
 ##  - named nerve trunks leaving the brain stem toward heart / lungs / limbs
 ##  - an EEG readout of the current cortical state
 
-@export var model: BodyModel
+var model: BodyModel   # assigned by Main before add_child (RefCounted -> not @exportable)
 
 var _brain: Sprite2D
 var _paths: Array[PulsePath] = []
